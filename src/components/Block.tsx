@@ -16,9 +16,9 @@ export const Block = (props: BlockType) => {
 }
 
 const BlockBase = (props: { indent: number; children: React.ReactNode }) => {
-  let linestyle = props.indent !== 0 ? 'sbx-line' : 'line' 
+  const lineStyle = props.indent !== 0 ? 'sbx-line' : 'line' 
   return (
-    <div style={{ marginLeft: 1.5 * props.indent + 'em' }} className={linestyle}>
+    <div style={{ marginLeft: 1.5 * props.indent + 'em' }} className={lineStyle}>
       {props.children}
     </div>
   )
