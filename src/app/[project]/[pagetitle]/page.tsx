@@ -1,8 +1,6 @@
 import { parse } from '@progfay/scrapbox-parser'
 import { Page } from '../../../components/Page'
 
-const reIcon = /\[.+?\.icon\]/;
-
 type Props = {
     params: Promise<{
         project: string,
