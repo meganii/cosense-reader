@@ -1,5 +1,6 @@
 import { parse } from '@progfay/scrapbox-parser'
 import { Page } from '../../../components/Page'
+import Link from 'next/link'
 
 type Props = {
     params: Promise<{
@@ -9,6 +10,7 @@ type Props = {
 }
 
 type SbLine = {
+    id: string
     text: string
 }
 
@@ -54,6 +56,10 @@ export default async function PageTitle({params} : Props) {
                         { sblines.map((sbline, i) => (
                             <Page key={`${index}-${i}`} blocks={parse("\n" + sbline.text.replace(/^[ \t　]+?/, ''))} ></Page>
                         ))}
+                    </div>
+                    <div className='m-2'>
+                        <Link className='underline'
+                        href={`https://scrapbox.io/${project}/${pagetitle}#${sblines[0].id}`}>🔗Origin</Link>
                     </div>
                 </li>
             </>
