@@ -176,7 +176,7 @@ const project = 'villagepump'
           src={`https://scrapbox.io/api/pages${path}/icon`}
           alt={name}
           title={name}
-          className="h-5"
+          className="h-5 inline"
         />
     </NextLink>
   )
