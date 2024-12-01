@@ -57,7 +57,7 @@ export default async function PageTitle({params} : Props) {
                             <Page key={`${index}-${i}`} blocks={parse("\n" + sbline.text.replace(/^[ \t　]+?/, ''))} ></Page>
                         ))}
                     </div>
-                    <div className='m-2'>
+                    <div className='mt-2'>
                         <Link className='underline'
                         href={`https://scrapbox.io/${project}/${pagetitle}#${sblines[0].id}`}>🔗Origin</Link>
                     </div>
