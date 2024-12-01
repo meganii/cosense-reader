@@ -51,7 +51,7 @@ export default async function PageTitle({params} : Props) {
     const list = diaries.map((sblines, index) => {
         return (
             <>
-                <li key={index} className='bg-neutral-100 rounded p-1 m-2'>
+                <li key={index} className='bg-white rounded p-2 m-2'>
                     <div className='w-full overflow-hidden'>
                         { sblines.map((sbline, i) => (
                             i === 0
@@ -59,7 +59,7 @@ export default async function PageTitle({params} : Props) {
                                 : <Page key={`${index}-${i}`} blocks={parse("\n" + sbline.text)} ></Page>
                         ))}
                     </div>
-                    <div className='mt-2'>
+                    <div className='my-2'>
                         <Link className='underline'
                         href={`https://scrapbox.io/${project}/${pagetitle}#${sblines[0].id}`}>🔗Origin</Link>
                     </div>
@@ -70,9 +70,9 @@ export default async function PageTitle({params} : Props) {
     
     return (
         <>
-            <h1>{project}</h1>
+            <h1 className='font-bold m-2'>{project}</h1>
             <ul>
-            {list}
+                {list}
             </ul>
         </>   
     )
