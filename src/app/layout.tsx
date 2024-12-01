@@ -13,10 +13,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className='antialiased [word-break:auto-phrase]'
-      >
-        {children}
+      <body>
+        <div className="container mx-auto">
+          <div className="content [word-break:auto-phrase]">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
