@@ -15,11 +15,14 @@ export const Block = (props: BlockType) => {
   }
 }
 
-const BlockBase = (props: { indent: number; children: React.ReactNode }) => (
-  <div style={{ marginLeft: 1.5 * props.indent + 'em' }} className="line">
-    {props.children}
-  </div>
-)
+const BlockBase = (props: { indent: number; children: React.ReactNode }) => {
+  let linestyle = props.indent !== 0 ? 'sbx-line' : 'line' 
+  return (
+    <div style={{ marginLeft: 1.5 * props.indent + 'em' }} className={linestyle}>
+      {props.children}
+    </div>
+  )
+}
 
 const Title = (props: TitleType) => (
   <div className="line line-title">

@@ -19,3 +19,15 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.sbx-line {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  line-height: 1.6;
+
+  &:before {
+    content: '・';
+    position: absolute;
+    margin-left: -1em;
+  }
+}

@@ -54,7 +54,9 @@ export default async function PageTitle({params} : Props) {
                 <li key={index} className='bg-neutral-100 rounded p-1 m-2'>
                     <div className='w-full overflow-hidden'>
                         { sblines.map((sbline, i) => (
-                            <Page key={`${index}-${i}`} blocks={parse("\n" + sbline.text.replace(/^[ \t　]+?/, ''))} ></Page>
+                            i === 0
+                                ? <Page key={`${index}-${i}`} blocks={parse("\n" + sbline.text.replace(/^[ \t　]+?/, ''))} ></Page>
+                                : <Page key={`${index}-${i}`} blocks={parse("\n" + sbline.text)} ></Page>
                         ))}
                     </div>
                     <div className='mt-2'>
