@@ -2,8 +2,6 @@ import React from 'react'
 import {
   Block as BlockType,
   Title as TitleType,
-  CodeBlock as CodeBlockType,
-  Table as TableType,
   Line as LineType,
 } from '@progfay/scrapbox-parser'
 import { Node } from './Node'

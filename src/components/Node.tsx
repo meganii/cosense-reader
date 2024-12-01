@@ -61,8 +61,8 @@ export const Node = (props: NodeType) => {
 const Quote = (props: QuoteNodeType) => (
   <blockquote className="quote">
     <span className="tag">{'>'}</span>
-    {props.nodes.map(node => (
-      <Node {...node} />
+    {props.nodes.map((node, index) => (
+      <Node key={index} {...node} />
     ))}
   </blockquote>
 )
@@ -100,8 +100,8 @@ const StrongIcon = (props: StrongIconNodeType) => {
 
 const Strong = (props: StrongNodeType) => (
   <strong>
-    {props.nodes.map(node => (
-      <Node {...node} />
+    {props.nodes.map((node, index) => (
+      <Node key={index} {...node} />
     ))}
   </strong>
 )
@@ -113,8 +113,8 @@ const Formula = (props: FormulaNodeType) => (
 const Decoration = (props: DecorationNodeType) => (
   <span className="deco">
     <span className={props.decos.map(deco => `deco-${deco}`).join(' ')}>
-      {props.nodes.map(node => (
-        <Node {...node} />
+      {props.nodes.map((node, index) => (
+        <Node key={index} {...node} />
       ))}
     </span>
   </span>

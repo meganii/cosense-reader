@@ -13,10 +13,6 @@ export const LinkNode = (props: LinkNodeType) => {
 }
 
 const InternalLink = (props: LinkNodeType) => {
-    const project = 'villagepump'
-    const href =
-    props.pathType === 'relative' ? `/${project}/${props.href}` : props.href
-
   return (
     <Link href={encodeURIComponent(props.href)} className='text-blue-600'>
       {props.href}

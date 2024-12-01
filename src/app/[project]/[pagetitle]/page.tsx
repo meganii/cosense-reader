@@ -3,10 +3,10 @@ import { Page } from '../../../components/Page'
 
 
 type Props = {
-    params: {
+    params: Promise<{
         project: string,
         pagetitle: string
-    }
+    }>
 }
 
 type Line = {
@@ -41,7 +41,7 @@ export default async function PageTitle({params} : Props) {
         }
     }
 
-    const list =diaries.map((t, index) => {
+    const list = diaries.map((t, index) => {
         return (
             <>
                 <li key={index} className='bg-neutral-100 rounded-3xl p-10 m-10'>
