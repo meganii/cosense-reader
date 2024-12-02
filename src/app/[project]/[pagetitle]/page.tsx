@@ -60,8 +60,8 @@ export default async function PageTitle({params} : Props) {
                         ))}
                     </div>
                     <div className='my-2'>
-                        <Link className='underline'
-                        href={`https://scrapbox.io/${project}/${pagetitle}#${sblines[0].id}`}>🔗Origin</Link>
+                        <Link className=''
+                        href={`https://scrapbox.io/${project}/${pagetitle}#${sblines[0].id}`}>🔗</Link>
                     </div>
                 </li>
             </>
