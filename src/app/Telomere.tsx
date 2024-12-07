@@ -11,9 +11,15 @@ export default function Telomere() {
       current: Math.floor(Date.now() / 1000),
     };
     localStorage.setItem(location.href, JSON.stringify(curr_timestamp));
-    [...document.querySelectorAll(".line")]
-      .filter((page) => page.dataset.updated > curr_timestamp.previus)
-      .map((page) => (page.style = "border: solid;border-width: 0 0 0 10px;border-color: rgb(132 204 22);"));
+    [...document.querySelectorAll<HTMLElement>(".line")]
+      .filter((page) => {
+        if (page.dataset.updated) {
+          return page.dataset.updated > curr_timestamp.previus;
+        } else {
+          return false;
+        }
+      })
+      .map((page) => (page.style.cssText = "border: solid;border-width: 0 0 0 10px;border-color: rgb(132 204 22);"));
   });
 
   return (
