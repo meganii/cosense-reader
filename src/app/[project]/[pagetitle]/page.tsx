@@ -2,16 +2,14 @@ import { parse } from '@progfay/scrapbox-parser'
 import { Page } from '../../../components/Page'
 import Link from 'next/link'
 
+import { SbLine } from '../../../components/SbLine'
+import Telomere from '@/app/Telomere'
+
 type Props = {
     params: Promise<{
         project: string,
         pagetitle: string
     }>
-}
-
-type SbLine = {
-    id: string
-    text: string
 }
 
 type SbPage = {
@@ -55,8 +53,8 @@ export default async function PageTitle({params} : Props) {
                     <div className='w-full overflow-hidden'>
                         { sblines.map((sbline, i) => (
                             i === 0
-                                ? <Page key={`${index}-${i}`} blocks={parse(sbline.text.replace(/^[ \t　]+?/, ''), { hasTitle: false})} ></Page>
-                                : <Page key={`${index}-${i}`} blocks={parse(sbline.text, { hasTitle: false})} ></Page>
+                                ? <Page key={`${index}-${i}`} line={sbline} blocks={parse(sbline.text.replace(/^[ \t　]+?/, ''), { hasTitle: false})} ></Page>
+                                : <Page key={`${index}-${i}`} line={sbline} blocks={parse(sbline.text, { hasTitle: false})} ></Page>
                         ))}
                     </div>
                     <div className='my-2'>
@@ -71,6 +69,7 @@ export default async function PageTitle({params} : Props) {
     return (
         <>
             <h1 className='font-bold m-2'>{project}</h1>
+            <Telomere />
             <ul>
                 {list}
             </ul>

@@ -5,17 +5,18 @@ import {
   Line as LineType,
 } from '@progfay/scrapbox-parser'
 import { Node } from './Node'
+import { SbLine } from './SbLine'
 
-export const Block = (props: BlockType) => {
-  switch (props.type) {
+export const Block = (props: {block: BlockType, line: SbLine}) => {
+  switch (props.block.type) {
     case 'title':
-      return <Title {...props} />
+      return <Title {...props.block} />
     case 'line':
-      return <Line {...props} />
+      return <Line line={props.line} block={props.block} />
   }
 }
 
-const BlockBase = (props: { indent: number; children: React.ReactNode }) => {
+const BlockBase = (props: { indent: number; children: React.ReactNode; line: SbLine }) => {
   const lineStyle = props.indent !== 0 ? 'sbx-line' : 'line' 
   return (
     <div style={{ marginLeft: 1.5 * props.indent + 'em' }} className={lineStyle}>
@@ -30,12 +31,12 @@ const Title = (props: TitleType) => (
   </div>
 )
 
-const Line = (props: LineType) => (
-  <BlockBase indent={props.indent}>
-    {!props.nodes.length ? (
+const Line = (props: { block :LineType, line : SbLine}) => (
+  <BlockBase indent={props.block.indent} line={props.line}>
+    {!props.block.nodes.length ? (
       <br />
     ) : (
-      props.nodes.map((node, i) => <Node key={i} {...node} />)
+      props.block.nodes.map((node, i) => <Node key={i} {...node} />)
     )}
   </BlockBase>
 )
